@@ -1,0 +1,9 @@
+version: '3'
+services:
+  database:
+    image: 'mongo'
+    container_name: 'jetbrains-yeti-mongo-db'
+    env_file:
+      - database.env
+    ports:
+      - '127.0.0.1:9999:27017'
