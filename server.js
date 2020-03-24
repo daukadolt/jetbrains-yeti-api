@@ -9,7 +9,7 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopol
         app.listen(expressPort, () => { console.log(`Yeti is up and running on port ${expressPort}`); });
     })
     .catch((err) => {
-        console.log('Error: mongoose could not connect');
-        console.log(err);
+        console.error('Error: mongoose could not connect');
+        console.error(err);
         process.exit(-1);
     });

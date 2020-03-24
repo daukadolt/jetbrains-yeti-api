@@ -16,6 +16,8 @@ module.exports = {
   },
   rules: {
     'semi': ['error', 'always'],
-    'quotes': ['error', 'single', {'allowTemplateLiterals': true }]
+    'quotes': ['error', 'single', {'allowTemplateLiterals': true }],
+    'indent': ['error', 4],
+    'max-len': ['error', 120],
   },
 };
