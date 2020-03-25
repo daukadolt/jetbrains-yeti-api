@@ -4,6 +4,6 @@ const conferenceRoute = require('./conference-route');
 
 const router = express.Router();
 
-router.use('/conferences', conferenceRoute);
+router.use('/conference', conferenceRoute);
 
 module.exports = router;
