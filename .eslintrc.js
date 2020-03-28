@@ -20,4 +20,5 @@ module.exports = {
     'indent': ['error', 4],
     'max-len': ['error', 120],
   },
+  ignorePatterns: ['node_modules', 'jest.config.js'],
 };
