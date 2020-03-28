@@ -19,7 +19,16 @@ const createNewConference = async (req, res) => {
     }
 };
 
+const searchConference = async (req, res) => {
+    try {
+        return res.json(await conferenceService.searchConference(req.body));
+    } catch (e) {
+        return res.sendStatus(500);
+    }
+};
+
 module.exports = {
     getAllConferences,
     createNewConference,
+    searchConference,
 };

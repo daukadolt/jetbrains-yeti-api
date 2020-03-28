@@ -7,4 +7,6 @@ router.get('/all', conferenceController.getAllConferences);
 
 router.post('/new', conferenceController.createNewConference);
 
+router.post('/search', conferenceController.searchConference);
+
 module.exports = router;
