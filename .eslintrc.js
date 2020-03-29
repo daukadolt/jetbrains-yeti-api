@@ -19,6 +19,7 @@ module.exports = {
     'quotes': ['error', 'single', {'allowTemplateLiterals': true }],
     'indent': ['error', 4],
     'max-len': ['error', 120],
+    'no-underscore-dangle': ['error', { 'allow': ['_id'] }],
   },
   ignorePatterns: ['node_modules', 'jest.config.js'],
 };
