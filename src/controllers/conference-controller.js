@@ -1,5 +1,7 @@
 const { conferenceService } = require('../services/index');
 
+const { ValidationError, DuplicateKeyError } = require('../errors/index');
+
 const getAllConferences = async (req, res) => {
     try {
         const allConferences = await conferenceService.getAllConferences();
@@ -15,6 +17,12 @@ const createNewConference = async (req, res) => {
         await conferenceService.createNewConference(conferenceData);
         return res.sendStatus(200);
     } catch (e) {
+        if (e instanceof ValidationError) {
+            return res.status(400).send(e.message);
+        }
+        if (e instanceof DuplicateKeyError) {
+            return res.status(400).send(e.message);
+        }
         return res.sendStatus(500);
     }
 };

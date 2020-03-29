@@ -1,14 +1,20 @@
 const moment = require('moment');
 const mongoose = require('mongoose');
 const { Conference } = require('../models/index');
+const { DuplicateKeyError } = require('../errors/index');
 
 const { ObjectId } = mongoose.Types;
 
 const getAllConferences = async () => Conference.Model.find({});
 
 const createNewConference = async (conferenceData) => {
-    const newConference = new Conference.Model(conferenceData);
-    return newConference.save({ checkKeys: false });
+    try {
+        const newConference = new Conference.Model(conferenceData);
+        await newConference.save({ checkKeys: false });
+    } catch (e) {
+        if (e.name === 'MongoError' && e.code === 11000) throw new DuplicateKeyError();
+        throw e;
+    }
 };
 
 const searchConference = async (conferenceData) => {
