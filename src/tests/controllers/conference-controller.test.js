@@ -10,7 +10,7 @@ const listOfConferences = require('../../../migrations/conferences.json');
 
 describe('testing conference controller', () => {
     beforeAll(async (done) => {
-        await mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+        await mongoose.connect(process.env.MONGO_TEST_URL, { useNewUrlParser: true, useUnifiedTopology: true });
         await Conference.Model.deleteMany({});
         done();
     });
