@@ -5,5 +5,7 @@ services:
     container_name: 'jetbrains-yeti-mongo-db'
     env_file:
       - database.env
+    volumes:
+      - ./docker_startup_scripts/:/docker-entrypoint-initdb.d
     ports:
       - '127.0.0.1:9999:27017'
