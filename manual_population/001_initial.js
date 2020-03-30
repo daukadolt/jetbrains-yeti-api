@@ -5,7 +5,7 @@ const { Conference } = require('../src/models/index');
 
 const listOfConferences = require('./conferences.json');
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_PROD_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(async () => {
         try {
             await Conference.Model.deleteMany({});
