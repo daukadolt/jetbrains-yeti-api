@@ -6,7 +6,7 @@ const request = require('supertest');
 const mongoose = require('mongoose');
 const app = require('../../app');
 const { Conference } = require('../../models');
-const listOfConferences = require('../../../migrations/conferences.json');
+const listOfConferences = require('../../../manual_population/conferences.json');
 
 describe('testing conference controller', () => {
     beforeAll(async (done) => {
